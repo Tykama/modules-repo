@@ -13,14 +13,15 @@ jobs:
       statuses: write
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: checkout code
         uses: actions/checkout@v4
 
-      - name: Install modules
+      - name: install modules
         run: |
-          npm install -D semantic-release @semantic-release/git @semantic-release/github
-
-      - name: Release
+          npm install --save-dev semantic-release
+          npm install semantic-release @semantic-release/git @semantic-release/github -D
+          
+      - name: release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
