@@ -8,4 +8,6 @@ resource "aws_instance" "test" {
   }
 }
 
-
+provider "aws" {
+  region = var.region
+}
