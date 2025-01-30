@@ -16,9 +16,10 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
       - name: install modules
+      - name: install modules
         run: |
-        npm install --save-dev semantic-release
-        npm install semantic-release @semantic-release/git @semantic-release/github -D
+          npm install --save-dev semantic-release
+          npm install semantic-release @semantic-release/git @semantic-release/github -D
       - name: release
         run: npx semantic-release
         env:
