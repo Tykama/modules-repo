@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-      - name: Install modules
+      - name: install modules
         run: |
         npm instal --save-dev semantic-release
         npm install semantic-release @semantic-release/git @semantic-release/github -D
