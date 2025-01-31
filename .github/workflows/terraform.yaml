@@ -2,13 +2,11 @@ name: terraform build
 
 on:
   push:
-
+env:
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
 jobs:
   terraform:
-    permissions:
-      id-token: write # This is required for requesting the JWT
-      contents: read  # This is required for actions/checkout
-
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,12 +17,6 @@ jobs:
 
       - name: Install terraform
         uses: hashicorp/setup-terraform@v3
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: us-east-1
-          role-to-assume: ${{ secrets.CI_ROLE }}
 
       - name: init
         run: terraform init
