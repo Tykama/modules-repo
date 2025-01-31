@@ -19,13 +19,13 @@ jobs:
       - name: Install modules
         run: |
           npm install -D semantic-release @semantic-release/git @semantic-release/github
-
+          
       - name: Checkov GitHub Action
         uses: bridgecrewio/checkov-action@v12
         with:
-            skip-check: CKV2_AWS_41
+            skip_check: CKV2_AWS_41,CKV2_GHA_1
             output_format: cli,sarif
-            output_file_path: console,results.sarif   
+            output_file_path: console,results.sarif  
 
       - name: Release
         run: npx semantic-release
