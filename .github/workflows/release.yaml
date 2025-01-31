@@ -23,7 +23,7 @@ jobs:
       - name: Checkov GitHub Action
         uses: bridgecrewio/checkov-action@v12
         with:
-            skip-check: CKV2_AWS_41,CKV2_GHA_1
+            skip-check: CKV2_GHA_1
             output_format: cli,sarif
             output_file_path: console,results.sarif   
 
