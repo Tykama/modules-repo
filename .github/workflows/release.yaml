@@ -19,6 +19,8 @@ jobs:
       - name: Install modules
         run: |
           npm install -D semantic-release @semantic-release/git @semantic-release/github
+          #npm install --save-dev semantic-release
+          #npm install semantic-release @semantic-release/git @semantic-release/github -D
           
       - name: Checkov GitHub Action
         uses: bridgecrewio/checkov-action@v12
